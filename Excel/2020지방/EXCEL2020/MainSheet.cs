@@ -69,6 +69,11 @@ namespace EXCEL2020
             #region 종료
 
             var closeButton = new Tools.Controls.Button();
+            closeButton.Click += (_, __) =>
+            {
+                Globals.ThisWorkbook.Save();
+                Globals.ThisWorkbook.Close();
+            };
             closeButton.Text = "종료";
             Controls.AddControl(closeButton, Range["F10"], "종료");
 
