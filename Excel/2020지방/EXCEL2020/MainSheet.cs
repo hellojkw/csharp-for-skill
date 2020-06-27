@@ -5,11 +5,13 @@ using System.Windows.Forms;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
+using Tools = Microsoft.Office.Tools.Excel;
 
 namespace EXCEL2020
 {
-    public partial class Sheet1
+    public partial class MainSheet
     {
+        Tools.Controls.Button _reservationButton;
         private void Sheet1_Startup(object sender, System.EventArgs e)
         {
         }

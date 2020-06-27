@@ -102,11 +102,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sheet1.cs">
+    <Compile Include="MainSheet.cs">
       <DependentUpon>EXCEL2020.xlsx</DependentUpon>
     </Compile>
-    <Compile Include="Sheet1.Designer.cs">
-      <DependentUpon>Sheet1.Designer.xml</DependentUpon>
+    <Compile Include="MainSheet.Designer.cs">
+      <DependentUpon>MainSheet.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="RoomListSheet.cs">
+      <DependentUpon>EXCEL2020.xlsx</DependentUpon>
+    </Compile>
+    <Compile Include="RoomListSheet.Designer.cs">
+      <DependentUpon>RoomListSheet.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentListSheet.cs">
+      <DependentUpon>EXCEL2020.xlsx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentListSheet.Designer.cs">
+      <DependentUpon>PaymentListSheet.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewSheet.cs">
+      <DependentUpon>EXCEL2020.xlsx</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewSheet.Designer.cs">
+      <DependentUpon>ReviewSheet.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="ChartSheet.cs">
+      <DependentUpon>EXCEL2020.xlsx</DependentUpon>
+    </Compile>
+    <Compile Include="ChartSheet.Designer.cs">
+      <DependentUpon>ChartSheet.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="UserListSheet.cs">
+      <DependentUpon>EXCEL2020.xlsx</DependentUpon>
+    </Compile>
+    <Compile Include="UserListSheet.Designer.cs">
+      <DependentUpon>UserListSheet.Designer.xml</DependentUpon>
     </Compile>
     <Compile Include="ThisWorkbook.cs">
       <DependentUpon>EXCEL2020.xlsx</DependentUpon>
@@ -141,8 +171,33 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sheet1.Designer.xml">
-      <DependentUpon>Sheet1.cs</DependentUpon>
+    <None Include="MainSheet.Designer.xml">
+      <DependentUpon>MainSheet.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UserListSheet.Designer.xml">
+      <DependentUpon>UserListSheet.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RoomListSheet.Designer.xml">
+      <DependentUpon>RoomListSheet.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PaymentListSheet.Designer.xml">
+      <DependentUpon>PaymentListSheet.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReviewSheet.Designer.xml">
+      <DependentUpon>ReviewSheet.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChartSheet.Designer.xml">
+      <DependentUpon>ChartSheet.cs</DependentUpon>
     </None>
   </ItemGroup>
   <PropertyGroup>
@@ -165,7 +220,12 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="EXCEL2020.xlsx" HostPackage="{3F2B7691-D1D1-402F-9370-2704A737CF60}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="XLS" Language="CS" TemplatesPath="VSTOTemplates" DebugInfoExeName="C:\Program Files\Microsoft Office\root\Office16\excel.exe" DebugInfoCommandLine="/x &quot;[$OUTPUT]EXCEL2020.xlsx&quot;" />
         <Host Name="Excel Document" Path=".\EXCEL2020.xlsx" GeneratedCodeNamespace="EXCEL2020">
-          <HostItem Name="Sheet1" Code="Sheet1.cs" CanonicalName="Sheet1" DisplayName="Sheet1" Blueprint="Sheet1.Designer.xml" GeneratedCode="Sheet1.Designer.cs" />
+          <HostItem Name="Sheet1" Code="MainSheet.cs" CanonicalName="Sheet1" DisplayName="Sheet1" Blueprint="MainSheet.Designer.xml" GeneratedCode="MainSheet.Designer.cs" />
+          <HostItem Name="Sheet3" Code="RoomListSheet.cs" CanonicalName="Sheet3" DisplayName="Sheet3" Blueprint="RoomListSheet.Designer.xml" GeneratedCode="RoomListSheet.Designer.cs" />
+          <HostItem Name="Sheet4" Code="PaymentListSheet.cs" CanonicalName="Sheet4" DisplayName="Sheet4" Blueprint="PaymentListSheet.Designer.xml" GeneratedCode="PaymentListSheet.Designer.cs" />
+          <HostItem Name="Sheet5" Code="ReviewSheet.cs" CanonicalName="Sheet5" DisplayName="Sheet5" Blueprint="ReviewSheet.Designer.xml" GeneratedCode="ReviewSheet.Designer.cs" />
+          <HostItem Name="Sheet6" Code="ChartSheet.cs" CanonicalName="Sheet6" DisplayName="Sheet6" Blueprint="ChartSheet.Designer.xml" GeneratedCode="ChartSheet.Designer.cs" />
+          <HostItem Name="Sheet2" Code="UserListSheet.cs" CanonicalName="Sheet2" DisplayName="Sheet2" Blueprint="UserListSheet.Designer.xml" GeneratedCode="UserListSheet.Designer.cs" />
           <HostItem Name="ThisWorkbook" Code="ThisWorkbook.cs" CanonicalName="ThisWorkbook" Blueprint="ThisWorkbook.Designer.xml" GeneratedCode="ThisWorkbook.Designer.cs" />
         </Host>
       </FlavorProperties>

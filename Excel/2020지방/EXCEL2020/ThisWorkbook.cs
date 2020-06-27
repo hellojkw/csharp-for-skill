@@ -12,6 +12,14 @@ namespace EXCEL2020
     {
         private void ThisWorkbook_Startup(object sender, System.EventArgs e)
         {
+            Globals.MainSheet.Name = "Main";
+            Globals.UserListSheet.Name = "회원정보";
+            Globals.RoomListSheet.Name = "객실정보";
+            Globals.PaymentListSheet.Name = "결제내역";
+            Globals.ReviewSheet.Name = "리뷰";
+            Globals.ChartSheet.Name = "차트";
+
+            Globals.MainSheet.Activate();
         }
 
         private void ThisWorkbook_Shutdown(object sender, System.EventArgs e)
