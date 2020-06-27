@@ -12,6 +12,10 @@ namespace EXCEL2020
     {
         private void Sheet4_Startup(object sender, System.EventArgs e)
         {
+            this.CreateButton("메인으로", Range["K1"], () =>
+            {
+                Globals.MainSheet.Activate();
+            });
         }
 
         private void Sheet4_Shutdown(object sender, System.EventArgs e)
