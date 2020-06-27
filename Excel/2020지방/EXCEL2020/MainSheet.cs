@@ -11,6 +11,8 @@ namespace EXCEL2020
 {
     public partial class MainSheet
     {
+        Tools.Controls.Button _loginButton;
+        Tools.Controls.Button _logoutButton;
         Tools.Controls.Button _reservationButton;
         Tools.Controls.Button _paymentListButton;
         private void Sheet1_Startup(object sender, System.EventArgs e)
@@ -26,14 +28,21 @@ namespace EXCEL2020
         {
             #region 로그인 버튼
 
-            var loginButton = new Tools.Controls.Button();
-            loginButton.Text = "로그인";
-            loginButton.Click += (_, __) =>
+            _loginButton = new Tools.Controls.Button();
+            _loginButton.Text = "로그인";
+            _loginButton.Click += (_, __) =>
             {
                 var loginForm = new LoginForm();
                 loginForm.ShowDialog();
             };
-            Controls.AddControl(loginButton, Range["J3"], "로그인");
+            Controls.AddControl(_loginButton, Range["J3"], "로그인");
+
+            #endregion
+
+            #region 로그아웃 버튼
+
+            _logoutButton = new Tools.Controls.Button();
+            _logoutButton.Text = "로그아웃";
 
             #endregion
 
