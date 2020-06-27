@@ -28,6 +28,11 @@ namespace EXCEL2020
 
             var loginButton = new Tools.Controls.Button();
             loginButton.Text = "로그인";
+            loginButton.Click += (_, __) =>
+            {
+                var loginForm = new LoginForm();
+                loginForm.ShowDialog();
+            };
             Controls.AddControl(loginButton, Range["J3"], "로그인");
 
             #endregion
