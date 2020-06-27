@@ -46,6 +46,7 @@ namespace EXCEL2020
             _paymentListButton = new Tools.Controls.Button();
             _paymentListButton.Text = "결제내역";
             _paymentListButton.Enabled = false;
+            _paymentListButton.Click += (_, __) => Globals.PaymentListSheet.Activate();
             Controls.AddControl(_paymentListButton, Range["E7"], "결제내역");
 
             #endregion
@@ -54,6 +55,7 @@ namespace EXCEL2020
 
             var summaryButton = new Tools.Controls.Button();
             summaryButton.Text = "집계차트";
+            summaryButton.Click += (_, __) => Globals.ChartSheet.Activate();
             Controls.AddControl(summaryButton, Range["G7"], "집계차트");
 
             #endregion
@@ -62,6 +64,7 @@ namespace EXCEL2020
 
             var reviewButton = new Tools.Controls.Button();
             reviewButton.Text = "리뷰";
+            reviewButton.Click += (_, __) => Globals.ReviewSheet.Activate();
             Controls.AddControl(reviewButton, Range["D10"], "리뷰");
 
             #endregion
