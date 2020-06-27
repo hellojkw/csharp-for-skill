@@ -20,5 +20,10 @@ namespace EXCEL2020
 
             return button;
         }
+
+        public static Excel.Range GetCell(this Tools.WorksheetBase worksheetBase, int row, int column)
+        {
+            return (Excel.Range)worksheetBase.Cells[row, column];
+        }
     }
 }

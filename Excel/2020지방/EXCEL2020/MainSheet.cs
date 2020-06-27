@@ -15,6 +15,9 @@ namespace EXCEL2020
         Tools.Controls.Button _logoutButton;
         Tools.Controls.Button _reservationButton;
         Tools.Controls.Button _paymentListButton;
+
+        UserData _loginUser;
+
         private void Sheet1_Startup(object sender, System.EventArgs e)
         {
             CreateButtons();
@@ -24,25 +27,21 @@ namespace EXCEL2020
         {
         }
 
+        private void CreateLoginButton()
+        {
+            _loginButton = this.CreateButton("로그인", Range["J3"], () =>
+            {
+                var loginForm = new LoginForm();
+                loginForm.LoginSuccess += LoginForm_LoginSuccess;
+                loginForm.ShowDialog();
+            });
+        }
+
         private void CreateButtons()
         {
             #region 로그인 버튼
 
-            _loginButton = new Tools.Controls.Button();
-            _loginButton.Text = "로그인";
-            _loginButton.Click += (_, __) =>
-            {
-                var loginForm = new LoginForm();
-                loginForm.ShowDialog();
-            };
-            Controls.AddControl(_loginButton, Range["J3"], "로그인");
-
-            #endregion
-
-            #region 로그아웃 버튼
-
-            _logoutButton = new Tools.Controls.Button();
-            _logoutButton.Text = "로그아웃";
+            CreateLoginButton();
 
             #endregion
 
@@ -95,6 +94,30 @@ namespace EXCEL2020
             Controls.AddControl(closeButton, Range["F10"], "종료");
 
             #endregion
+        }
+
+        private void LoginForm_LoginSuccess(object sender, UserData loginUser)
+        {
+            _loginUser = loginUser;
+            MessageBox.Show($"{loginUser.Name}님 로그인 하셨습니다.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ((LoginForm)sender).Close();
+
+            Controls.Remove(_loginButton);
+
+            _logoutButton = this.CreateButton("로그아웃", Range["J3"], () =>
+            {
+                _loginUser = null;
+                Controls.Remove(_logoutButton);
+
+                CreateLoginButton();
+
+                _reservationButton.Enabled = false;
+                _paymentListButton.Enabled = false;
+            });
+
+            _reservationButton.Enabled = true;
+            _paymentListButton.Enabled = true;
         }
 
         #region VSTO Designer generated code
