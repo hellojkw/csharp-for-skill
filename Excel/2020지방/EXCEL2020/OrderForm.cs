@@ -18,10 +18,13 @@ namespace EXCEL2020
         {
             InitializeComponent();
 
+            _orderData = orderData;
+
             SubmitButton.Enabled = false;
             CancelButton.Enabled = false;
 
             InitRoomNoSelect(selectedRoomList);
+            InitOrderData();
         }
 
         private void InitRoomNoSelect(List<RoomData> selectedRoomList)
@@ -37,6 +40,13 @@ namespace EXCEL2020
                 RoomUnitPriceLabel.Text = room.UnitPrice.ToString("#,#") + "원";
                 RoomMaximumLabel.Text = room.MaximumCount + "명";
             };
+        }
+
+        private void InitOrderData()
+        {
+            CheckInLabel.Text = _orderData.CheckInDate.ToString("yyyy-MM-dd");
+            CheckOutLabel.Text = _orderData.CheckOutDate.ToString("yyyy-MM-dd");
+            UserPointLabel.Text = _orderData.User.Point.ToString("#,#") + "원";
         }
     }
 }
