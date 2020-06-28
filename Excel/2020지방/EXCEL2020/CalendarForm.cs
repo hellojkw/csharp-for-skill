@@ -18,9 +18,11 @@ namespace EXCEL2020
         DateTime _firstDate;
 
         Func<DateTime, bool> _disableFunc;
+        Action<DateTime> _submit;
 
-        public CalendarForm(Func<DateTime, bool> disableFunc = null)
+        public CalendarForm(Action<DateTime> submit, Func<DateTime, bool> disableFunc = null)
         {
+            _submit = submit;
             _disableFunc = disableFunc;
 
             InitializeComponent();
@@ -89,6 +91,13 @@ namespace EXCEL2020
                         x.Button.ForeColor = Color.Red;
                     if (column == 6)
                         x.Button.ForeColor = Color.Blue;
+
+                    x.Button.Click += (_, __) =>
+                    {
+                        var day = int.Parse(x.Button.Text);
+                        _submit?.Invoke(_firstDate.AddDays(day - 1));
+                        this.Close();
+                    };
                 });
         }
 

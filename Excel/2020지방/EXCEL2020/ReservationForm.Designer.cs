@@ -56,11 +56,12 @@
             this.CheckInText.Name = "CheckInText";
             this.CheckInText.Size = new System.Drawing.Size(121, 27);
             this.CheckInText.TabIndex = 1;
+            this.CheckInText.Click += new System.EventHandler(this.CheckInText_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(170, 18);
+            this.label2.Location = new System.Drawing.Point(170, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 2;
@@ -69,7 +70,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(324, 18);
+            this.label3.Location = new System.Drawing.Point(324, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 4;
@@ -81,6 +82,7 @@
             this.CheckOutText.Name = "CheckOutText";
             this.CheckOutText.Size = new System.Drawing.Size(121, 27);
             this.CheckOutText.TabIndex = 3;
+            this.CheckOutText.Click += new System.EventHandler(this.CheckOutText_Click);
             // 
             // label4
             // 
