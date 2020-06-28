@@ -82,8 +82,6 @@ namespace EXCEL2020
             reviewButton.Click += (_, __) => Globals.ReviewSheet.Activate();
             Controls.AddControl(reviewButton, Range["D10"], "리뷰");
 
-            new CalendarForm().Show();
-
             #endregion
 
             #region 종료
