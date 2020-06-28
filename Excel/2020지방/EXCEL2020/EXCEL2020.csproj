@@ -114,6 +114,7 @@
     <Compile Include="MainSheet.Designer.cs">
       <DependentUpon>MainSheet.Designer.xml</DependentUpon>
     </Compile>
+    <Compile Include="RangeExtension.cs" />
     <Compile Include="RoomListSheet.cs">
       <DependentUpon>EXCEL2020.xlsx</DependentUpon>
     </Compile>
