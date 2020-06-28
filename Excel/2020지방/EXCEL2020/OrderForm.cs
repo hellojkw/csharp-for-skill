@@ -15,6 +15,9 @@ namespace EXCEL2020
         public OrderForm()
         {
             InitializeComponent();
+
+            SubmitButton.Enabled = false;
+            CancelButton.Enabled = false;
         }
     }
 }
