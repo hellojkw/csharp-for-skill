@@ -142,6 +142,7 @@
             this.CancelButton.TabIndex = 11;
             this.CancelButton.Text = "취소";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // RegisterForm
             // 

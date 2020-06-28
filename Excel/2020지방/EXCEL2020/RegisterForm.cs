@@ -119,5 +119,10 @@ namespace EXCEL2020
             MessageBox.Show("회원가입이 완료되었습니다.");
             this.Close();
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
