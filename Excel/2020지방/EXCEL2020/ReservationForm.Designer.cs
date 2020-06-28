@@ -126,6 +126,7 @@
             this.NextButton.TabIndex = 9;
             this.NextButton.Text = "다음";
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // CommentLabel
             // 

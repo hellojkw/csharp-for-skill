@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FreeRoomCountLabel = new System.Windows.Forms.Label();
             this.SelectedRoomCountLabel = new System.Windows.Forms.Label();
-            this.RoomListBox = new System.Windows.Forms.ListBox();
             this.NextButton = new System.Windows.Forms.Button();
+            this.RoomListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -72,19 +72,9 @@
             this.SelectedRoomCountLabel.TabIndex = 2;
             this.SelectedRoomCountLabel.Text = "0개";
             // 
-            // RoomListBox
-            // 
-            this.RoomListBox.FormattingEnabled = true;
-            this.RoomListBox.ItemHeight = 20;
-            this.RoomListBox.Location = new System.Drawing.Point(16, 120);
-            this.RoomListBox.MultiColumn = true;
-            this.RoomListBox.Name = "RoomListBox";
-            this.RoomListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.RoomListBox.Size = new System.Drawing.Size(455, 344);
-            this.RoomListBox.TabIndex = 3;
-            // 
             // NextButton
             // 
+            this.NextButton.Enabled = false;
             this.NextButton.Location = new System.Drawing.Point(374, 483);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(97, 31);
@@ -92,13 +82,24 @@
             this.NextButton.Text = "다음";
             this.NextButton.UseVisualStyleBackColor = true;
             // 
+            // RoomListView
+            // 
+            this.RoomListView.CheckBoxes = true;
+            this.RoomListView.GridLines = true;
+            this.RoomListView.HideSelection = false;
+            this.RoomListView.Location = new System.Drawing.Point(16, 98);
+            this.RoomListView.Name = "RoomListView";
+            this.RoomListView.Size = new System.Drawing.Size(455, 379);
+            this.RoomListView.TabIndex = 5;
+            this.RoomListView.UseCompatibleStateImageBehavior = false;
+            // 
             // SelectRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 544);
+            this.Controls.Add(this.RoomListView);
             this.Controls.Add(this.NextButton);
-            this.Controls.Add(this.RoomListBox);
             this.Controls.Add(this.SelectedRoomCountLabel);
             this.Controls.Add(this.FreeRoomCountLabel);
             this.Controls.Add(this.label2);
@@ -118,7 +119,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label FreeRoomCountLabel;
         private System.Windows.Forms.Label SelectedRoomCountLabel;
-        private System.Windows.Forms.ListBox RoomListBox;
         private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.ListView RoomListView;
     }
 }

@@ -15,6 +15,8 @@ namespace EXCEL2020
         DateTime _checkInDate = DateTime.MinValue;
         DateTime _checkOutDate = DateTime.MinValue;
 
+        List<RoomData> _freeRoomList;
+
         public ReservationForm()
         {
             InitializeComponent();
@@ -93,6 +95,7 @@ namespace EXCEL2020
                 .Select(x => x.ToString())
                 .ToArray());
 
+            _freeRoomList = freeRoomList;
             if (freeRoomList.Any())
             {
                 CommentLabel.Text = $"현재 사용가능한 객실이 {freeRoomList.Count}개 있습니다.";
@@ -104,6 +107,11 @@ namespace EXCEL2020
                 CommentLabel.ForeColor = Color.Red;
             }
             CommentLabel.Visible = true;
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            new SelectRoomForm(_freeRoomList.Count, _freeRoomList).Show();
         }
     }
 }
