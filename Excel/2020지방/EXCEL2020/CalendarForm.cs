@@ -15,6 +15,8 @@ namespace EXCEL2020
         List<Label> _labels;
         List<Button> _buttons;
 
+        DateTime _firstDate;
+
         public CalendarForm()
         {
             InitializeComponent();
@@ -94,6 +96,7 @@ namespace EXCEL2020
                         && x.Index <= dayOfWeekIndex + lastDate.Subtract(firstDate).TotalDays)
                     {
                         x.Button.Text = (x.Index - dayOfWeekIndex + 1).ToString();
+                        x.Button.Visible = true;
                     }
                     else
                     {
@@ -102,6 +105,20 @@ namespace EXCEL2020
                 });
 
             TitleLabel.Text = $"{year}년 {month}월";
+            _firstDate = firstDate;
+
+            PrevMonthButton.Enabled = _firstDate.Month != 1;
+            NextMonthButton.Enabled = _firstDate.Month != 12;
+        }
+
+        private void PrevMonthButton_Click(object sender, EventArgs e)
+        {
+            InitDate(DateTime.Now.Year, _firstDate.Month - 1);
+        }
+
+        private void NextMonthButton_Click(object sender, EventArgs e)
+        {
+            InitDate(DateTime.Now.Year, _firstDate.Month + 1);
         }
     }
 }

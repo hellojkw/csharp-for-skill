@@ -90,6 +90,7 @@
             this.PrevMonthButton.TabIndex = 0;
             this.PrevMonthButton.Text = "button1";
             this.PrevMonthButton.UseVisualStyleBackColor = true;
+            this.PrevMonthButton.Click += new System.EventHandler(this.PrevMonthButton_Click);
             // 
             // TitleLabel
             // 
@@ -108,6 +109,7 @@
             this.NextMonthButton.TabIndex = 2;
             this.NextMonthButton.Text = "button2";
             this.NextMonthButton.UseVisualStyleBackColor = true;
+            this.NextMonthButton.Click += new System.EventHandler(this.NextMonthButton_Click);
             // 
             // label0
             // 
