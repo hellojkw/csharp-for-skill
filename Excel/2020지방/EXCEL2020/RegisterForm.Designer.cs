@@ -78,6 +78,7 @@
             // 
             this.PwText.Location = new System.Drawing.Point(123, 87);
             this.PwText.Name = "PwText";
+            this.PwText.PasswordChar = '●';
             this.PwText.Size = new System.Drawing.Size(113, 27);
             this.PwText.TabIndex = 5;
             // 
@@ -131,6 +132,7 @@
             this.RegisterButton.TabIndex = 10;
             this.RegisterButton.Text = "등록";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // CancelButton
             // 

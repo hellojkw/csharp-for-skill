@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -62,6 +63,20 @@ namespace EXCEL2020
                     Grade = grade,
                 };
             }
+        }
+
+        public void AddUser(UserData user)
+        {
+            var row = UsedRange.Row + UsedRange.Rows.Count;
+            var lastUser = GetUserList().LastOrDefault();
+
+            this.GetCell(row, 1).Value2 = (lastUser?.UserNumber ?? 0) + 1;
+            this.GetCell(row, 2).Value2 = user.Id;
+            this.GetCell(row, 3).Value2 = user.Password;
+            this.GetCell(row, 4).Value2 = user.Name;
+            this.GetCell(row, 5).Value2 = user.Birthday.ToString("yyyy-MM-dd");
+            this.GetCell(row, 6).Value2 = user.Point;
+            this.GetCell(row, 7).Value2 = user.Grade;
         }
 
         #region VSTO Designer generated code
