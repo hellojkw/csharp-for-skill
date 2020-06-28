@@ -11,12 +11,18 @@ namespace EXCEL2020
 {
     public class UserData
     {
+        public int Row;
+        public int UserNumber;
         public string Id;
         public string Password;
         public string Name;
-        //public DateTime Birthday;
+        public DateTime Birthday;
         public long Point;
         public string Grade;
+
+        public double Discount =>
+            Grade == "최우수" ? 0.1 :
+            Grade == "우수" ? 0.05 : 0;
     }
 
     public partial class UserListSheet
@@ -36,19 +42,22 @@ namespace EXCEL2020
 
             for (var row = 2; row <= lastRow; row++)
             {
-                string id = this.GetCell(row, 2).Value2;
-                string pw = this.GetCell(row, 3).Value2;
-                string name = this.GetCell(row, 4).Value2;
-                //DateTime birthday = this.GetCell(row, 5).Value2;
-                long point = (long)this.GetCell(row, 6).Value2;
-                string grade = this.GetCell(row, 7).Value2;
+                var userNo = this.GetCell(row, 1).AsInteger();
+                var id = this.GetCell(row, 2).AsString();
+                var pw = this.GetCell(row, 3).AsString();
+                var name = this.GetCell(row, 4).AsString();
+                var birthday = this.GetCell(row, 5).AsDateTime();
+                var point = this.GetCell(row, 6).AsLong();
+                var grade = this.GetCell(row, 7).AsString();
 
                 yield return new UserData
                 {
+                    Row = row,
+                    UserNumber = userNo,
                     Id = id,
                     Password = pw,
                     Name = name,
-                    //Birthday = birthday,
+                    Birthday = birthday,
                     Point = point,
                     Grade = grade,
                 };
