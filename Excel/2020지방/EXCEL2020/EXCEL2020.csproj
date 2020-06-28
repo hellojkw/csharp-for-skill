@@ -157,6 +157,12 @@
     <Compile Include="ChartSheet.Designer.cs">
       <DependentUpon>ChartSheet.Designer.xml</DependentUpon>
     </Compile>
+    <Compile Include="SelectRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectRoomForm.Designer.cs">
+      <DependentUpon>SelectRoomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserListSheet.cs">
       <DependentUpon>EXCEL2020.xlsx</DependentUpon>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReservationForm.resx">
       <DependentUpon>ReservationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectRoomForm.resx">
+      <DependentUpon>SelectRoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="EXCEL2020.xlsx" />
     <None Include="EXCEL2020_TemporaryKey.pfx" />
