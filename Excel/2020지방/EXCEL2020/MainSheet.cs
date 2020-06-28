@@ -52,6 +52,7 @@ namespace EXCEL2020
             _reservationButton = new Tools.Controls.Button();
             _reservationButton.Text = "예약";
             _reservationButton.Enabled = false;
+            _reservationButton.Click += (_, __) => new ReservationForm().ShowDialog();
             Controls.AddControl(_reservationButton, Range["C7"], "예약");
 
             #endregion
