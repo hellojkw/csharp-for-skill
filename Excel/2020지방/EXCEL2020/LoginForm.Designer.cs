@@ -87,6 +87,7 @@
             this.RegisterButton.TabIndex = 5;
             this.RegisterButton.Text = "회원가입";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // LoginForm
             // 

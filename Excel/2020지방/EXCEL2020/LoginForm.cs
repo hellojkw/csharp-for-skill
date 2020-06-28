@@ -46,5 +46,10 @@ namespace EXCEL2020
                 MessageBox.Show("아이디 혹은 비밀번호가 일치하지 않습니다.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            new RegisterForm().Show();
+        }
     }
 }
