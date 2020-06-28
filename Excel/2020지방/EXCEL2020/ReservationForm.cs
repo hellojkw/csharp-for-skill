@@ -18,6 +18,15 @@ namespace EXCEL2020
         public ReservationForm()
         {
             InitializeComponent();
+
+            GradeSelect.Items.AddRange(new[]
+            {
+                "상관없음",
+                "Standard",
+                "Superior",
+                "Deluxe",
+                "Suite",
+            });
         }
 
         private void CheckInText_Click(object sender, EventArgs e)
