@@ -16,7 +16,9 @@ namespace EXCEL2020
         Tools.Controls.Button _reservationButton;
         Tools.Controls.Button _paymentListButton;
 
-        UserData _loginUser;
+        public UserData LoginUser;
+
+        public bool IsLogin => LoginUser != null;
 
         private void Sheet1_Startup(object sender, System.EventArgs e)
         {
@@ -98,7 +100,7 @@ namespace EXCEL2020
 
         private void LoginForm_LoginSuccess(object sender, UserData loginUser)
         {
-            _loginUser = loginUser;
+            LoginUser = loginUser;
             MessageBox.Show($"{loginUser.Name}님 로그인 하셨습니다.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             ((LoginForm)sender).Close();
@@ -107,7 +109,7 @@ namespace EXCEL2020
 
             _logoutButton = this.CreateButton("로그아웃", Range["J3"], () =>
             {
-                _loginUser = null;
+                LoginUser = null;
                 Controls.Remove(_logoutButton);
 
                 CreateLoginButton();

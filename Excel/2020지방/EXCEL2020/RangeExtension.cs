@@ -11,6 +11,20 @@ namespace EXCEL2020
 {
     public static class RangeExtension
     {
+        public static bool AsBoolean(this Excel.Range range, Func<string, bool> converter)
+        {
+            var value = range.Value2;
+            if (value is bool)
+            {
+                return value;
+            }
+            else if (converter != null)
+            {
+                return converter((string)value);
+            }
+            return false;
+        }
+
         public static int AsInteger(this Excel.Range range, Func<string, int> converter = null)
         {
             var value = range.Value2;
