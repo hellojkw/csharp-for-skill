@@ -20,6 +20,10 @@ namespace EXCEL2020 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
         private global::System.Object missing = global::System.Type.Missing;
         
+        internal Microsoft.Office.Tools.Excel.Controls.ComboBox ChartSelect;
+        
+        internal Microsoft.Office.Tools.Excel.Controls.Button GotoMainButton;
+        
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -129,6 +133,8 @@ namespace EXCEL2020 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void InitializeControls() {
+            this.ChartSelect = new Microsoft.Office.Tools.Excel.Controls.ComboBox(Globals.Factory, this.ItemProvider, this.HostContext, "122DDB3D21742C14D851A1B31D2CF12300FED1", "122DDB3D21742C14D851A1B31D2CF12300FED1", this, "ChartSelect");
+            this.GotoMainButton = new Microsoft.Office.Tools.Excel.Controls.Button(Globals.Factory, this.ItemProvider, this.HostContext, "2C928815A2098124E082A0D6261B9401EF9D52", "2C928815A2098124E082A0D6261B9401EF9D52", this, "GotoMainButton");
         }
         
         /// 
@@ -136,6 +142,24 @@ namespace EXCEL2020 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void InitializeComponents() {
+            // 
+            // ChartSelect
+            // 
+            this.ChartSelect.Name = "ChartSelect";
+            this.ChartSelect.Text = "comboBox1";
+            // 
+            // GotoMainButton
+            // 
+            this.GotoMainButton.BackColor = System.Drawing.SystemColors.Control;
+            this.GotoMainButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.GotoMainButton.Name = "GotoMainButton";
+            this.GotoMainButton.Text = "메인으로";
+            this.GotoMainButton.UseVisualStyleBackColor = false;
+            // 
+            // ChartSheet
+            // 
+            this.ChartSelect.BindingContext = this.BindingContext;
+            this.GotoMainButton.BindingContext = this.BindingContext;
         }
         
         /// 

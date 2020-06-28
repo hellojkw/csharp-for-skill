@@ -12,6 +12,13 @@ namespace EXCEL2020
     {
         private void Sheet6_Startup(object sender, System.EventArgs e)
         {
+            ChartSelect.Items.AddRange(new[]
+            {
+                "월별",
+                "회원별",
+                "객실번호별",
+            });
+            ChartSelect.Text = "";
         }
 
         private void Sheet6_Shutdown(object sender, System.EventArgs e)
@@ -26,11 +33,17 @@ namespace EXCEL2020
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(Sheet6_Startup);
-            this.Shutdown += new System.EventHandler(Sheet6_Shutdown);
+            this.GotoMainButton.Click += new System.EventHandler(this.GotoMainButton_Click);
+            this.Startup += new System.EventHandler(this.Sheet6_Startup);
+            this.Shutdown += new System.EventHandler(this.Sheet6_Shutdown);
+
         }
 
         #endregion
 
+        private void GotoMainButton_Click(object sender, EventArgs e)
+        {
+            Globals.MainSheet.Activate();
+        }
     }
 }
