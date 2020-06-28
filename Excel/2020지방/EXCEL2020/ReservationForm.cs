@@ -111,7 +111,13 @@ namespace EXCEL2020
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            new SelectRoomForm(_freeRoomList.Count, _freeRoomList).Show();
+            var orderData = new OrderData
+            {
+                User = Globals.MainSheet.LoginUser,
+                CheckInDate = _checkInDate,
+                CheckOutDate = _checkOutDate,
+            };
+            new SelectRoomForm(orderData, int.Parse(RoomCount.Text), _freeRoomList).Show();
         }
     }
 }

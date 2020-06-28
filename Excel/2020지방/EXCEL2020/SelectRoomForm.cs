@@ -12,12 +12,14 @@ namespace EXCEL2020
 {
     public partial class SelectRoomForm : Form
     {
+        OrderData _orderData;
         int _roomCount;
 
-        public SelectRoomForm(int roomCount, List<RoomData> freeRoomList = null)
+        public SelectRoomForm(OrderData orderData, int roomCount, List<RoomData> freeRoomList = null)
         {
             InitializeComponent();
 
+            _orderData = orderData;
             _roomCount = roomCount;
             FreeRoomCountLabel.Text = $"{_roomCount}개";
 
@@ -74,6 +76,25 @@ namespace EXCEL2020
 
                 NextButton.Enabled = selectedCount > 0;
             };
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            var roomList = Globals.RoomListSheet.GetRoomList().ToList();
+            List<RoomData> selectedRoomList = new List<RoomData>();
+            foreach (ListViewItem item in RoomListView.Items)
+            {
+                if (item.Checked)
+                {
+                    var roomNo = item.SubItems[0].Text;
+                    var room = roomList.FirstOrDefault(x => x.RoomNumber == roomNo);
+                    if (room != null)
+                    {
+                        selectedRoomList.Add(room);
+                    }
+                }
+            }
+            new OrderForm(_orderData, selectedRoomList).Show();
         }
     }
 }
