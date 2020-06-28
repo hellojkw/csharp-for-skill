@@ -101,6 +101,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarForm.Designer.cs">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
       <DependentUpon>ThisWorkbook.Designer.xml</DependentUpon>
     </Compile>
     <Compile Include="WorksheetBaseExtension.cs" />
+    <EmbeddedResource Include="CalendarForm.resx">
+      <DependentUpon>CalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChartSheet.resx">
       <DependentUpon>ChartSheet.cs</DependentUpon>
     </EmbeddedResource>
