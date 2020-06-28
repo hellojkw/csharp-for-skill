@@ -115,6 +115,12 @@
       <DependentUpon>MainSheet.Designer.xml</DependentUpon>
     </Compile>
     <Compile Include="RangeExtension.cs" />
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoomListSheet.cs">
       <DependentUpon>EXCEL2020.xlsx</DependentUpon>
     </Compile>
@@ -167,6 +173,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="EXCEL2020.xlsx" />
     <None Include="EXCEL2020_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
