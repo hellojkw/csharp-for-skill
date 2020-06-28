@@ -17,8 +17,12 @@ namespace EXCEL2020
 
         DateTime _firstDate;
 
-        public CalendarForm()
+        Func<DateTime, bool> _disableFunc;
+
+        public CalendarForm(Func<DateTime, bool> disableFunc = null)
         {
+            _disableFunc = disableFunc;
+
             InitializeComponent();
 
             InitLabels();
@@ -50,6 +54,11 @@ namespace EXCEL2020
                     x.Label.Top = label0.Top;
                     x.Label.Left = label0.Left + 40 * x.Index;
                     x.Label.Text = days[x.Index];
+
+                    if (x.Index == 0)
+                        x.Label.ForeColor = Color.Red;
+                    if (x.Index == 6)
+                        x.Label.ForeColor = Color.Blue;
                 });
         }
 
@@ -75,6 +84,11 @@ namespace EXCEL2020
                     x.Button.Top = button0.Top + row * 40;
                     x.Button.Left = button0.Left + column * 40;
                     x.Button.Margin = new Padding(0);
+
+                    if (column == 0)
+                        x.Button.ForeColor = Color.Red;
+                    if (column == 6)
+                        x.Button.ForeColor = Color.Blue;
                 });
         }
 
@@ -92,11 +106,20 @@ namespace EXCEL2020
                 .ToList()
                 .ForEach(x =>
                 {
+                    x.Button.Enabled = true;
+                    x.Button.Visible = true;
+
                     if (x.Index >= dayOfWeekIndex
                         && x.Index <= dayOfWeekIndex + lastDate.Subtract(firstDate).TotalDays)
                     {
                         x.Button.Text = (x.Index - dayOfWeekIndex + 1).ToString();
-                        x.Button.Visible = true;
+
+                        var date = new DateTime(year, month, x.Index - dayOfWeekIndex + 1);
+                        if (date < DateTime.Today)
+                            x.Button.Enabled = false;
+
+                        if (_disableFunc?.Invoke(date) ?? false)
+                            x.Button.Enabled = false;
                     }
                     else
                     {
@@ -107,8 +130,8 @@ namespace EXCEL2020
             TitleLabel.Text = $"{year}년 {month}월";
             _firstDate = firstDate;
 
-            PrevMonthButton.Enabled = _firstDate.Month != 1;
-            NextMonthButton.Enabled = _firstDate.Month != 12;
+            PrevMonthButton.Enabled = firstDate.Month > DateTime.Now.Month;
+            NextMonthButton.Enabled = firstDate.Month < 12;
         }
 
         private void PrevMonthButton_Click(object sender, EventArgs e)
