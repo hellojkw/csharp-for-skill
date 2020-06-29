@@ -37,6 +37,21 @@ namespace EXCEL2020
             InitOrderData();
 
             UpdateSelectedRoomListView();
+
+            CashOption.CheckedChanged += PaymentOption_CheckedChanged;
+            PointOption.CheckedChanged += PaymentOption_CheckedChanged;
+        }
+
+        private void PaymentOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CashOption.Checked || PointOption.Checked)
+            {
+                SubmitButton.Enabled = true;
+            }
+            else
+            {
+                SubmitButton.Enabled = false;
+            }
         }
 
         private void InitRoomNoSelect(List<RoomData> selectedRoomList)
@@ -119,6 +134,13 @@ namespace EXCEL2020
             else
             {
                 PointOption.Enabled = true;
+            }
+
+            if (_selectedRoomList.Empty())
+            {
+                SubmitButton.Enabled = false;
+                CashOption.Checked = false;
+                PointOption.Checked = false;
             }
         }
 
