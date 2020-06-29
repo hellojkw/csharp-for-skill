@@ -31,7 +31,7 @@ namespace EXCEL2020
             _orderData = orderData;
 
             SubmitButton.Enabled = false;
-            CancelButton.Enabled = false;
+            DeleteRoomButton.Enabled = false;
 
             InitRoomNoSelect(selectedRoomList);
             InitOrderData();
@@ -109,6 +109,17 @@ namespace EXCEL2020
 
             TotalPriceLabel.Text = TotalPrice.ToString("#,0") + "원";
             DeleteRoomButton.Enabled = _selectedRoomList.Any();
+
+            if (TotalPrice > _orderData.User.Point)
+            {
+                PointOption.Checked = false;
+                PointOption.Enabled = false;
+                CashOption.Checked = true;
+            }
+            else
+            {
+                PointOption.Enabled = true;
+            }
         }
 
         private void DeleteRoomButton_Click(object sender, EventArgs e)
