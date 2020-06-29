@@ -29,36 +29,36 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.RoomNoSelect = new System.Windows.Forms.ComboBox();
-            this.UserCount = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.RoomTypeLabel = new System.Windows.Forms.Label();
-            this.RoomUnitPriceLabel = new System.Windows.Forms.Label();
-            this.RoomMaximumLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.RoomMaximumLabel = new System.Windows.Forms.Label();
+            this.RoomUnitPriceLabel = new System.Windows.Forms.Label();
+            this.RoomTypeLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.UserCount = new System.Windows.Forms.NumericUpDown();
+            this.RoomNoSelect = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.RoomListView = new System.Windows.Forms.ListView();
-            this.DeleteRoomButton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.CheckInLabel = new System.Windows.Forms.Label();
-            this.CheckOutLabel = new System.Windows.Forms.Label();
-            this.TotalPriceLabel = new System.Windows.Forms.Label();
-            this.UserPointLabel = new System.Windows.Forms.Label();
-            this.CashOption = new System.Windows.Forms.RadioButton();
-            this.PointOption = new System.Windows.Forms.RadioButton();
-            this.SubmitButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.SubmitButton = new System.Windows.Forms.Button();
+            this.PointOption = new System.Windows.Forms.RadioButton();
+            this.CashOption = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.UserPointLabel = new System.Windows.Forms.Label();
+            this.TotalPriceLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CheckOutLabel = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CheckInLabel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DeleteRoomButton = new System.Windows.Forms.Button();
+            this.RoomListView = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,30 +82,68 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "선택 객실 확인";
             // 
-            // pictureBox1
+            // button1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(357, 182);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.button1.Location = new System.Drawing.Point(23, 441);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(322, 31);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "확인";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // RoomMaximumLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 230);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "선택객실";
+            this.RoomMaximumLabel.AutoSize = true;
+            this.RoomMaximumLabel.Location = new System.Drawing.Point(112, 366);
+            this.RoomMaximumLabel.Name = "RoomMaximumLabel";
+            this.RoomMaximumLabel.Size = new System.Drawing.Size(69, 20);
+            this.RoomMaximumLabel.TabIndex = 9;
+            this.RoomMaximumLabel.Text = "선택객실";
             // 
-            // RoomNoSelect
+            // RoomUnitPriceLabel
             // 
-            this.RoomNoSelect.FormattingEnabled = true;
-            this.RoomNoSelect.Location = new System.Drawing.Point(116, 227);
-            this.RoomNoSelect.Name = "RoomNoSelect";
-            this.RoomNoSelect.Size = new System.Drawing.Size(121, 28);
-            this.RoomNoSelect.TabIndex = 2;
+            this.RoomUnitPriceLabel.AutoSize = true;
+            this.RoomUnitPriceLabel.Location = new System.Drawing.Point(112, 325);
+            this.RoomUnitPriceLabel.Name = "RoomUnitPriceLabel";
+            this.RoomUnitPriceLabel.Size = new System.Drawing.Size(69, 20);
+            this.RoomUnitPriceLabel.TabIndex = 8;
+            this.RoomUnitPriceLabel.Text = "선택객실";
+            // 
+            // RoomTypeLabel
+            // 
+            this.RoomTypeLabel.AutoSize = true;
+            this.RoomTypeLabel.Location = new System.Drawing.Point(112, 282);
+            this.RoomTypeLabel.Name = "RoomTypeLabel";
+            this.RoomTypeLabel.Size = new System.Drawing.Size(69, 20);
+            this.RoomTypeLabel.TabIndex = 7;
+            this.RoomTypeLabel.Text = "선택객실";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 366);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "최대인원수";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 325);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "1박요금";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 282);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "객실구분";
             // 
             // UserCount
             // 
@@ -123,69 +161,32 @@
             0,
             0,
             0});
+            this.UserCount.ValueChanged += new System.EventHandler(this.UserCount_ValueChanged);
             // 
-            // label2
+            // RoomNoSelect
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 282);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "객실구분";
+            this.RoomNoSelect.FormattingEnabled = true;
+            this.RoomNoSelect.Location = new System.Drawing.Point(116, 227);
+            this.RoomNoSelect.Name = "RoomNoSelect";
+            this.RoomNoSelect.Size = new System.Drawing.Size(121, 28);
+            this.RoomNoSelect.TabIndex = 2;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 325);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "1박요금";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "선택객실";
             // 
-            // label4
+            // pictureBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 366);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "최대인원수";
-            // 
-            // RoomTypeLabel
-            // 
-            this.RoomTypeLabel.AutoSize = true;
-            this.RoomTypeLabel.Location = new System.Drawing.Point(112, 282);
-            this.RoomTypeLabel.Name = "RoomTypeLabel";
-            this.RoomTypeLabel.Size = new System.Drawing.Size(69, 20);
-            this.RoomTypeLabel.TabIndex = 7;
-            this.RoomTypeLabel.Text = "선택객실";
-            // 
-            // RoomUnitPriceLabel
-            // 
-            this.RoomUnitPriceLabel.AutoSize = true;
-            this.RoomUnitPriceLabel.Location = new System.Drawing.Point(112, 325);
-            this.RoomUnitPriceLabel.Name = "RoomUnitPriceLabel";
-            this.RoomUnitPriceLabel.Size = new System.Drawing.Size(69, 20);
-            this.RoomUnitPriceLabel.TabIndex = 8;
-            this.RoomUnitPriceLabel.Text = "선택객실";
-            // 
-            // RoomMaximumLabel
-            // 
-            this.RoomMaximumLabel.AutoSize = true;
-            this.RoomMaximumLabel.Location = new System.Drawing.Point(112, 366);
-            this.RoomMaximumLabel.Name = "RoomMaximumLabel";
-            this.RoomMaximumLabel.Size = new System.Drawing.Size(69, 20);
-            this.RoomMaximumLabel.TabIndex = 9;
-            this.RoomMaximumLabel.Text = "선택객실";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(23, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(322, 31);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "확인";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(357, 182);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBox2
             // 
@@ -211,115 +212,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "결제 정보";
             // 
-            // RoomListView
+            // CancelButton
             // 
-            this.RoomListView.HideSelection = false;
-            this.RoomListView.Location = new System.Drawing.Point(6, 26);
-            this.RoomListView.Name = "RoomListView";
-            this.RoomListView.Size = new System.Drawing.Size(414, 130);
-            this.RoomListView.TabIndex = 0;
-            this.RoomListView.UseCompatibleStateImageBehavior = false;
+            this.CancelButton.Location = new System.Drawing.Point(227, 440);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(100, 32);
+            this.CancelButton.TabIndex = 6;
+            this.CancelButton.Text = "취소";
+            this.CancelButton.UseVisualStyleBackColor = true;
             // 
-            // DeleteRoomButton
+            // SubmitButton
             // 
-            this.DeleteRoomButton.Location = new System.Drawing.Point(320, 162);
-            this.DeleteRoomButton.Name = "DeleteRoomButton";
-            this.DeleteRoomButton.Size = new System.Drawing.Size(100, 32);
-            this.DeleteRoomButton.TabIndex = 1;
-            this.DeleteRoomButton.Text = "삭제";
-            this.DeleteRoomButton.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 215);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 20);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "체크인";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(38, 257);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 20);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "체크인";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(38, 300);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 20);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "체크인";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(38, 345);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 20);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "체크인";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(38, 389);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 20);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "체크인";
-            // 
-            // CheckInLabel
-            // 
-            this.CheckInLabel.AutoSize = true;
-            this.CheckInLabel.Location = new System.Drawing.Point(138, 215);
-            this.CheckInLabel.Name = "CheckInLabel";
-            this.CheckInLabel.Size = new System.Drawing.Size(54, 20);
-            this.CheckInLabel.TabIndex = 2;
-            this.CheckInLabel.Text = "체크인";
-            // 
-            // CheckOutLabel
-            // 
-            this.CheckOutLabel.AutoSize = true;
-            this.CheckOutLabel.Location = new System.Drawing.Point(138, 257);
-            this.CheckOutLabel.Name = "CheckOutLabel";
-            this.CheckOutLabel.Size = new System.Drawing.Size(54, 20);
-            this.CheckOutLabel.TabIndex = 2;
-            this.CheckOutLabel.Text = "체크인";
-            // 
-            // TotalPriceLabel
-            // 
-            this.TotalPriceLabel.AutoSize = true;
-            this.TotalPriceLabel.Location = new System.Drawing.Point(138, 300);
-            this.TotalPriceLabel.Name = "TotalPriceLabel";
-            this.TotalPriceLabel.Size = new System.Drawing.Size(54, 20);
-            this.TotalPriceLabel.TabIndex = 2;
-            this.TotalPriceLabel.Text = "체크인";
-            // 
-            // UserPointLabel
-            // 
-            this.UserPointLabel.AutoSize = true;
-            this.UserPointLabel.Location = new System.Drawing.Point(138, 345);
-            this.UserPointLabel.Name = "UserPointLabel";
-            this.UserPointLabel.Size = new System.Drawing.Size(54, 20);
-            this.UserPointLabel.TabIndex = 2;
-            this.UserPointLabel.Text = "체크인";
-            // 
-            // CashOption
-            // 
-            this.CashOption.AutoSize = true;
-            this.CashOption.Location = new System.Drawing.Point(142, 389);
-            this.CashOption.Name = "CashOption";
-            this.CashOption.Size = new System.Drawing.Size(57, 24);
-            this.CashOption.TabIndex = 3;
-            this.CashOption.TabStop = true;
-            this.CashOption.Text = "현금";
-            this.CashOption.UseVisualStyleBackColor = true;
+            this.SubmitButton.Location = new System.Drawing.Point(86, 440);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(100, 32);
+            this.SubmitButton.TabIndex = 5;
+            this.SubmitButton.Text = "결제";
+            this.SubmitButton.UseVisualStyleBackColor = true;
             // 
             // PointOption
             // 
@@ -332,23 +241,115 @@
             this.PointOption.Text = "포인트";
             this.PointOption.UseVisualStyleBackColor = true;
             // 
-            // SubmitButton
+            // CashOption
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(86, 440);
-            this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(100, 32);
-            this.SubmitButton.TabIndex = 5;
-            this.SubmitButton.Text = "결제";
-            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.CashOption.AutoSize = true;
+            this.CashOption.Location = new System.Drawing.Point(142, 389);
+            this.CashOption.Name = "CashOption";
+            this.CashOption.Size = new System.Drawing.Size(57, 24);
+            this.CashOption.TabIndex = 3;
+            this.CashOption.TabStop = true;
+            this.CashOption.Text = "현금";
+            this.CashOption.UseVisualStyleBackColor = true;
             // 
-            // CancelButton
+            // label12
             // 
-            this.CancelButton.Location = new System.Drawing.Point(227, 440);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(100, 32);
-            this.CancelButton.TabIndex = 6;
-            this.CancelButton.Text = "취소";
-            this.CancelButton.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(38, 389);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 20);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "체크인";
+            // 
+            // UserPointLabel
+            // 
+            this.UserPointLabel.AutoSize = true;
+            this.UserPointLabel.Location = new System.Drawing.Point(138, 345);
+            this.UserPointLabel.Name = "UserPointLabel";
+            this.UserPointLabel.Size = new System.Drawing.Size(54, 20);
+            this.UserPointLabel.TabIndex = 2;
+            this.UserPointLabel.Text = "체크인";
+            // 
+            // TotalPriceLabel
+            // 
+            this.TotalPriceLabel.AutoSize = true;
+            this.TotalPriceLabel.Location = new System.Drawing.Point(138, 300);
+            this.TotalPriceLabel.Name = "TotalPriceLabel";
+            this.TotalPriceLabel.Size = new System.Drawing.Size(54, 20);
+            this.TotalPriceLabel.TabIndex = 2;
+            this.TotalPriceLabel.Text = "체크인";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(38, 345);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 20);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "체크인";
+            // 
+            // CheckOutLabel
+            // 
+            this.CheckOutLabel.AutoSize = true;
+            this.CheckOutLabel.Location = new System.Drawing.Point(138, 257);
+            this.CheckOutLabel.Name = "CheckOutLabel";
+            this.CheckOutLabel.Size = new System.Drawing.Size(54, 20);
+            this.CheckOutLabel.TabIndex = 2;
+            this.CheckOutLabel.Text = "체크인";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(38, 300);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 20);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "체크인";
+            // 
+            // CheckInLabel
+            // 
+            this.CheckInLabel.AutoSize = true;
+            this.CheckInLabel.Location = new System.Drawing.Point(138, 215);
+            this.CheckInLabel.Name = "CheckInLabel";
+            this.CheckInLabel.Size = new System.Drawing.Size(54, 20);
+            this.CheckInLabel.TabIndex = 2;
+            this.CheckInLabel.Text = "체크인";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 257);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 20);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "체크인";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(38, 215);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "체크인";
+            // 
+            // DeleteRoomButton
+            // 
+            this.DeleteRoomButton.Location = new System.Drawing.Point(320, 162);
+            this.DeleteRoomButton.Name = "DeleteRoomButton";
+            this.DeleteRoomButton.Size = new System.Drawing.Size(100, 32);
+            this.DeleteRoomButton.TabIndex = 1;
+            this.DeleteRoomButton.Text = "삭제";
+            this.DeleteRoomButton.UseVisualStyleBackColor = true;
+            // 
+            // RoomListView
+            // 
+            this.RoomListView.HideSelection = false;
+            this.RoomListView.Location = new System.Drawing.Point(6, 26);
+            this.RoomListView.Name = "RoomListView";
+            this.RoomListView.Size = new System.Drawing.Size(414, 130);
+            this.RoomListView.TabIndex = 0;
+            this.RoomListView.UseCompatibleStateImageBehavior = false;
             // 
             // OrderForm
             // 
@@ -363,8 +364,8 @@
             this.Text = "결제";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

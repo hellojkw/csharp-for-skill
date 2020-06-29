@@ -48,5 +48,20 @@ namespace EXCEL2020
             CheckOutLabel.Text = _orderData.CheckOutDate.ToString("yyyy-MM-dd");
             UserPointLabel.Text = _orderData.User.Point.ToString("#,#") + "원";
         }
+
+        private void UserCount_ValueChanged(object sender, EventArgs e)
+        {
+            var roomNo = RoomNoSelect.Text;
+            var room = Globals.RoomListSheet.GetRoomList().FirstOrDefault(x => x.RoomNumber == roomNo);
+            if (room == null)
+                return;
+
+            if (UserCount.Value > room.MaximumCount)
+            {
+                MessageBox.Show("선택 가능한 인원수를 초과했습니다.");
+                UserCount.Value = room.MaximumCount;
+                return;
+            }
+        }
     }
 }
