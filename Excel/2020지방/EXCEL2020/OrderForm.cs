@@ -127,5 +127,10 @@ namespace EXCEL2020
             _selectedRoomList.Clear();
             UpdateSelectedRoomListView();
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
