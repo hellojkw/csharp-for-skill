@@ -93,7 +93,23 @@ namespace EXCEL2020
             TotalPriceLabel.Text = TotalPrice.ToString("#,#") + "원";
             UserPointLabel.Text = _orderData.User.Point.ToString("#,#") + "원";
 
-            DeleteRoomButton.Enabled = true;
+            UpdateSelectedRoomListView();
+        }
+
+        private void UpdateSelectedRoomListView()
+        {
+            RoomListView.Items.Clear();
+            RoomListView.Items.AddRange(_selectedRoomList
+                .Select(x => new ListViewItem(new string[]
+                {
+                    x.Room.RoomNumber,
+                    x.Room.RoomType,
+                    x.UserCount.ToString("#,#"),
+                    x.Room.UnitPrice.ToString("#,#"),
+                }))
+                .ToArray());
+
+            DeleteRoomButton.Enabled = _selectedRoomList.Any();
         }
     }
 }

@@ -56,6 +56,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.DeleteRoomButton = new System.Windows.Forms.Button();
             this.RoomListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -345,12 +349,43 @@
             // 
             // RoomListView
             // 
+            this.RoomListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.RoomListView.FullRowSelect = true;
+            this.RoomListView.GridLines = true;
             this.RoomListView.HideSelection = false;
             this.RoomListView.Location = new System.Drawing.Point(6, 26);
             this.RoomListView.Name = "RoomListView";
             this.RoomListView.Size = new System.Drawing.Size(414, 130);
             this.RoomListView.TabIndex = 0;
             this.RoomListView.UseCompatibleStateImageBehavior = false;
+            this.RoomListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "객실번호";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "객실구분";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "인원";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "1박요금";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 100;
             // 
             // OrderForm
             // 
@@ -403,5 +438,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button DeleteRoomButton;
         private System.Windows.Forms.ListView RoomListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
