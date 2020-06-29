@@ -13,6 +13,7 @@ namespace EXCEL2020
     public partial class OrderForm : Form
     {
         OrderData _orderData;
+        List<(RoomData Room, int UserCount, long UnitPrice)> _selectedRoomList = new List<(RoomData Room, int UserCount, long UnitPrice)>();
 
         public OrderForm(OrderData orderData, List<RoomData> selectedRoomList)
         {
@@ -66,6 +67,12 @@ namespace EXCEL2020
 
         private void AddRoomButton_Click(object sender, EventArgs e)
         {
+            var roomNo = RoomNoSelect.Text;
+            if (_selectedRoomList.Any(x => x.Room.RoomNumber == roomNo))
+            {
+                MessageBox.Show("이미 등록된 객실 입니다.");
+                return;
+            }
         }
     }
 }
