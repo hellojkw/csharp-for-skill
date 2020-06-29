@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddRoomButton = new System.Windows.Forms.Button();
             this.RoomMaximumLabel = new System.Windows.Forms.Label();
             this.RoomUnitPriceLabel = new System.Windows.Forms.Label();
             this.RoomTypeLabel = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.AddRoomButton);
             this.groupBox1.Controls.Add(this.RoomMaximumLabel);
             this.groupBox1.Controls.Add(this.RoomUnitPriceLabel);
             this.groupBox1.Controls.Add(this.RoomTypeLabel);
@@ -82,14 +82,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "선택 객실 확인";
             // 
-            // button1
+            // AddRoomButton
             // 
-            this.button1.Location = new System.Drawing.Point(23, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(322, 31);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "확인";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddRoomButton.Location = new System.Drawing.Point(23, 441);
+            this.AddRoomButton.Name = "AddRoomButton";
+            this.AddRoomButton.Size = new System.Drawing.Size(322, 31);
+            this.AddRoomButton.TabIndex = 10;
+            this.AddRoomButton.Text = "확인";
+            this.AddRoomButton.UseVisualStyleBackColor = true;
+            this.AddRoomButton.Click += new System.EventHandler(this.AddRoomButton_Click);
             // 
             // RoomMaximumLabel
             // 
@@ -375,7 +376,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddRoomButton;
         private System.Windows.Forms.Label RoomMaximumLabel;
         private System.Windows.Forms.Label RoomUnitPriceLabel;
         private System.Windows.Forms.Label RoomTypeLabel;

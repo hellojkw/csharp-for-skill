@@ -63,5 +63,9 @@ namespace EXCEL2020
                 return;
             }
         }
+
+        private void AddRoomButton_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
