@@ -346,6 +346,7 @@
             this.DeleteRoomButton.TabIndex = 1;
             this.DeleteRoomButton.Text = "삭제";
             this.DeleteRoomButton.UseVisualStyleBackColor = true;
+            this.DeleteRoomButton.Click += new System.EventHandler(this.DeleteRoomButton_Click);
             // 
             // RoomListView
             // 

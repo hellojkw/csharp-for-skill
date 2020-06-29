@@ -35,6 +35,8 @@ namespace EXCEL2020
 
             InitRoomNoSelect(selectedRoomList);
             InitOrderData();
+
+            UpdateSelectedRoomListView();
         }
 
         private void InitRoomNoSelect(List<RoomData> selectedRoomList)
@@ -47,7 +49,7 @@ namespace EXCEL2020
             {
                 var room = selectedRoomList[RoomNoSelect.SelectedIndex];
                 RoomTypeLabel.Text = room.RoomType;
-                RoomUnitPriceLabel.Text = room.UnitPrice.ToString("#,#") + "원";
+                RoomUnitPriceLabel.Text = room.UnitPrice.ToString("#,0") + "원";
                 RoomMaximumLabel.Text = room.MaximumCount + "명";
             };
         }
@@ -56,7 +58,7 @@ namespace EXCEL2020
         {
             CheckInLabel.Text = _orderData.CheckInDate.ToString("yyyy-MM-dd");
             CheckOutLabel.Text = _orderData.CheckOutDate.ToString("yyyy-MM-dd");
-            UserPointLabel.Text = _orderData.User.Point.ToString("#,#") + "원";
+            UserPointLabel.Text = _orderData.User.Point.ToString("#,0") + "원";
         }
 
         private void UserCount_ValueChanged(object sender, EventArgs e)
@@ -89,10 +91,6 @@ namespace EXCEL2020
                 return;
 
             _selectedRoomList.Add((room, (int)UserCount.Value));
-
-            TotalPriceLabel.Text = TotalPrice.ToString("#,#") + "원";
-            UserPointLabel.Text = _orderData.User.Point.ToString("#,#") + "원";
-
             UpdateSelectedRoomListView();
         }
 
@@ -104,12 +102,19 @@ namespace EXCEL2020
                 {
                     x.Room.RoomNumber,
                     x.Room.RoomType,
-                    x.UserCount.ToString("#,#"),
-                    x.Room.UnitPrice.ToString("#,#"),
+                    x.UserCount.ToString("#,0"),
+                    x.Room.UnitPrice.ToString("#,0"),
                 }))
                 .ToArray());
 
+            TotalPriceLabel.Text = TotalPrice.ToString("#,0") + "원";
             DeleteRoomButton.Enabled = _selectedRoomList.Any();
+        }
+
+        private void DeleteRoomButton_Click(object sender, EventArgs e)
+        {
+            _selectedRoomList.Clear();
+            UpdateSelectedRoomListView();
         }
     }
 }
