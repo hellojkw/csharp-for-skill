@@ -13,7 +13,16 @@ namespace EXCEL2020
     public partial class OrderForm : Form
     {
         OrderData _orderData;
-        List<(RoomData Room, int UserCount, long UnitPrice)> _selectedRoomList = new List<(RoomData Room, int UserCount, long UnitPrice)>();
+        List<(RoomData Room, int UserCount)> _selectedRoomList = new List<(RoomData Room, int UserCount)>();
+
+        long TotalPrice => _selectedRoomList
+            .Select(room =>
+            {
+                var days = (int)_orderData.CheckOutDate.Subtract(_orderData.CheckInDate).TotalDays;
+                var total = room.Room.UnitPrice * days * (1 - _orderData.User.Discount);
+                return (long)total;
+            })
+            .Sum();
 
         public OrderForm(OrderData orderData, List<RoomData> selectedRoomList)
         {
@@ -57,7 +66,7 @@ namespace EXCEL2020
             if (room == null)
                 return;
 
-            if (UserCount.Value > room.MaximumCount)
+            if ((int)UserCount.Value > room.MaximumCount)
             {
                 MessageBox.Show("선택 가능한 인원수를 초과했습니다.");
                 UserCount.Value = room.MaximumCount;
@@ -73,6 +82,18 @@ namespace EXCEL2020
                 MessageBox.Show("이미 등록된 객실 입니다.");
                 return;
             }
+
+            var room = Globals.RoomListSheet.GetRoomList().FirstOrDefault(x => x.RoomNumber == roomNo);
+
+            if (room == null)
+                return;
+
+            _selectedRoomList.Add((room, (int)UserCount.Value));
+
+            TotalPriceLabel.Text = TotalPrice.ToString("#,#") + "원";
+            UserPointLabel.Text = _orderData.User.Point.ToString("#,#") + "원";
+
+            DeleteRoomButton.Enabled = true;
         }
     }
 }
