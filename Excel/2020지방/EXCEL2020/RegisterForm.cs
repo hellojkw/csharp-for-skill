@@ -106,6 +106,7 @@ namespace EXCEL2020
 
             var user = new UserData
             {
+                UserNumber = -1,
                 Id = IdText.Text,
                 Password = PwText.Text,
                 Name = UserNameText.Text,
@@ -114,7 +115,7 @@ namespace EXCEL2020
                 Grade = "일반",
             };
 
-            Globals.UserListSheet.AddUser(user);
+            Globals.UserListSheet.AddOrUpdateUser(user);
 
             MessageBox.Show("회원가입이 완료되었습니다.");
             this.Close();

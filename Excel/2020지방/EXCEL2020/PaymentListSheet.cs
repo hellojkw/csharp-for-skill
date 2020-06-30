@@ -95,6 +95,23 @@ namespace EXCEL2020
             }
         }
 
+        public void AddPaymentData(PaymentData data)
+        {
+            var row = UsedRange.Row + UsedRange.Rows.Count;
+            var list = GetPaymentDataList().Select(x => x.PaymentNumber);
+            this.GetCell(row, 1).Value2 = list.Any() ? list.Max() + 1 : 1;
+            this.GetCell(row, 2).Value2 = data.UserNumber;
+            this.GetCell(row, 3).Value2 = data.RoomList.Select(x => x.RoomNo).StringJoin(",");
+            this.GetCell(row, 4).Value2 = data.RoomList.Select(x => x.VisitorCount.ToString()).StringJoin(",");
+            this.GetCell(row, 5).Value2 = data.ReserveDate;
+            this.GetCell(row, 6).Value2 = data.CheckInDate;
+            this.GetCell(row, 7).Value2 = data.CheckOutDate;
+            this.GetCell(row, 8).Value2 = data.UsedCurrencyType;
+            this.GetCell(row, 9).Value2 = data.TotalPrice;
+
+            UpdateTotalPrice();
+        }
+
         private void Sheet4_Shutdown(object sender, System.EventArgs e)
         {
         }

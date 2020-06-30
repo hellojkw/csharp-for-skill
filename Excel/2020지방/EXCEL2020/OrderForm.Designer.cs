@@ -235,6 +235,7 @@
             this.SubmitButton.TabIndex = 5;
             this.SubmitButton.Text = "결제";
             this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // PointOption
             // 

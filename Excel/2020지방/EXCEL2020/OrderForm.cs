@@ -154,5 +154,46 @@ namespace EXCEL2020
         {
             this.Close();
         }
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            var paymentData = new PaymentData
+            {
+                PaymentNumber = 0,
+                UserNumber = _orderData.User.UserNumber,
+                RoomList = _selectedRoomList.Select(x => (x.Room.RoomNumber, x.UserCount)).ToList(),
+                ReserveDate = DateTime.Today,
+                CheckInDate = _orderData.CheckInDate,
+                CheckOutDate = _orderData.CheckOutDate,
+                TotalPrice = TotalPrice,
+                UsedCurrencyType = CashOption.Checked ? "현금" : "포인트",
+            };
+            Globals.PaymentListSheet.AddPaymentData(paymentData);
+
+            if (CashOption.Checked)
+            {
+                var userTotal = Globals.PaymentListSheet.GetPaymentDataList()
+                    .Where(x => x.UserNumber == paymentData.UserNumber)
+                    .Sum(x => x.TotalPrice);
+                var nextGrade = userTotal >= 3_000_000 ? "최우수"
+                    : userTotal >= 1_000_000 ? "우수" : "일반";
+                if (_orderData.User.Grade != nextGrade)
+                {
+                    _orderData.User.Grade = nextGrade;
+                    Globals.UserListSheet.AddOrUpdateUser(_orderData.User);
+                    MessageBox.Show($"회원님의 등급이 {nextGrade}로 승급하였습니다.");
+                }
+                else
+                {
+                    MessageBox.Show("결제가 완료 되었습니다.");
+                }
+            }
+            else
+            {
+                _orderData.User.Point -= TotalPrice;
+                Globals.UserListSheet.AddOrUpdateUser(_orderData.User);
+                MessageBox.Show($"포인트로 결제 완료되었습니다.\n잔여 포인트 : {_orderData.User.Point:#,0}");
+            }
+        }
     }
 }

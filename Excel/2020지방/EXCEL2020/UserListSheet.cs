@@ -65,12 +65,24 @@ namespace EXCEL2020
             }
         }
 
-        public void AddUser(UserData user)
+        public void AddOrUpdateUser(UserData user)
         {
-            var row = UsedRange.Row + UsedRange.Rows.Count;
+            var row = 0;
+            var userList = GetUserList().ToList();
+            if (userList.Any(x => x.UserNumber == user.UserNumber))
+            {
+                row = userList.First(x => x.UserNumber == user.UserNumber).Row;
+            }
+            else
+            {
+                row = UsedRange.Row + UsedRange.Rows.Count;
+                var maxUserNo = userList.Any() ? userList.Max(x => x.UserNumber) : 0;
+                user.UserNumber = maxUserNo + 1;
+            }
+
             var lastUser = GetUserList().LastOrDefault();
 
-            this.GetCell(row, 1).Value2 = (lastUser?.UserNumber ?? 0) + 1;
+            this.GetCell(row, 1).Value2 = user.UserNumber;
             this.GetCell(row, 2).Value2 = user.Id;
             this.GetCell(row, 3).Value2 = user.Password;
             this.GetCell(row, 4).Value2 = user.Name;

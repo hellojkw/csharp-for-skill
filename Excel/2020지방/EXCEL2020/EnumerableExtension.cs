@@ -17,5 +17,10 @@ namespace EXCEL2020
         {
             return !source.Any(predicate);
         }
+
+        public static string StringJoin(this IEnumerable<string> source, string separator)
+        {
+            return string.Join(separator, source);
+        }
     }
 }
