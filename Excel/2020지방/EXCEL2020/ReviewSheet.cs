@@ -14,6 +14,7 @@ namespace EXCEL2020
     {
         public int Row;
         public int ReviewNumber;
+        public int PaymentNumber;
         public int UserNumber;
         public bool Public;
         public string RoomNumber;
@@ -27,7 +28,7 @@ namespace EXCEL2020
         {
             HidePrivateReview();
 
-            this.CreateButton("메인으로", Range["H1"], () =>
+            this.CreateButton("메인으로", Range["I1"], () =>
             {
                 Globals.MainSheet.Activate();
             });
@@ -47,11 +48,12 @@ namespace EXCEL2020
                 {
                     Row = row,
                     ReviewNumber = this.GetCell(row, 1).AsInteger(),
-                    UserNumber = this.GetCell(row, 2).AsInteger(),
-                    Public = this.GetCell(row, 3).AsBoolean(str => str == "O"),
-                    RoomNumber = this.GetCell(row, 4).AsString(),
-                    Grade = this.GetCell(row, 5).Value2,
-                    Comment = this.GetCell(row, 6).AsString(),
+                    PaymentNumber = this.GetCell(row, 2).AsInteger(),
+                    UserNumber = this.GetCell(row, 3).AsInteger(),
+                    Public = this.GetCell(row, 4).AsBoolean(str => str == "O"),
+                    RoomNumber = this.GetCell(row, 5).AsString(),
+                    Grade = this.GetCell(row, 6).Value2,
+                    Comment = this.GetCell(row, 7).AsString(),
                 };
             }
         }
