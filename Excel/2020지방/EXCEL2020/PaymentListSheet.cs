@@ -4,12 +4,19 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.Office.Core;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 
 namespace EXCEL2020
 {
+    public enum Status
+    {
+        CheckOut,
+        CheckIn,
+        NotYet,
+    }
     public class PaymentData
     {
         public int Row;
@@ -21,6 +28,10 @@ namespace EXCEL2020
         public DateTime CheckOutDate;
         public string UsedCurrencyType;
         public long TotalPrice;
+
+        public Status Status => CheckOutDate <= DateTime.Today ? Status.CheckOut
+            : CheckInDate <= DateTime.Today ? Status.CheckIn
+            : Status.NotYet;
     }
 
     public partial class PaymentListSheet
@@ -126,6 +137,82 @@ namespace EXCEL2020
         {
             this.Startup += new System.EventHandler(Sheet4_Startup);
             this.Shutdown += new System.EventHandler(Sheet4_Shutdown);
+            this.BeforeRightClick += PaymentListSheet_BeforeRightClick;
+        }
+
+        private void PaymentListSheet_BeforeRightClick(Excel.Range Target, ref bool Cancel)
+        {
+            Office.CommandBar cellCommandBar = Globals.ThisWorkbook.Application.CommandBars["Cell"];
+
+            if (cellCommandBar == null)
+                return;
+
+            cellCommandBar.Reset();
+
+            var list = GetPaymentDataList().ToList();
+
+            if (Target.Count != 1)
+                return;
+            if (Target.Column != 2)
+                return;
+            if (list.Empty(x => x.Row == Target.Row))
+                return;
+
+            while (cellCommandBar.Controls.Count > 0)
+            {
+                cellCommandBar.Controls[1].Delete();
+            }
+
+            var targetPaymentData = list.FirstOrDefault(x => x.Row == Target.Row);
+
+            Office.CommandBarButton button = (CommandBarButton)cellCommandBar.Controls.Add(
+                MsoControlType.msoControlButton
+                );
+            if (button != null && targetPaymentData != null)
+            {
+                switch (targetPaymentData.Status)
+                {
+                    case Status.CheckOut:
+                        button.Caption = "리뷰";
+                        button.FaceId = 1087;
+                        button.Click += (Office.CommandBarButton control, ref bool cancel) =>
+                        {
+                        };
+                        break;
+                    case Status.CheckIn:
+                        button.Caption = "투숙중";
+                        button.FaceId = 487;
+                        button.Click += (Office.CommandBarButton control, ref bool cancel) =>
+                        {
+                            MessageBox.Show("투숙중인 고객입니다.");
+                        };
+                        break;
+                    case Status.NotYet:
+                        button.Caption = "삭제";
+                        button.FaceId = 1088;
+                        button.Click += (Office.CommandBarButton control, ref bool cancel) =>
+                        {
+                            var result = MessageBox.Show("예약을 삭제하시겠습니까?", "", MessageBoxButtons.YesNo);
+                            if (result == DialogResult.Yes)
+                            {
+                                this.GetCell(targetPaymentData.Row, 1).EntireRow.Delete();
+                            }
+                        };
+                        break;
+                    default:
+                        cellCommandBar.Reset();
+                        break;
+                }
+            }
+            else
+            {
+                cellCommandBar.Reset();
+            }
+        }
+
+        private void Button_Click(CommandBarButton Ctrl, ref bool CancelDefault)
+        {
+            MessageBox.Show("test");
         }
 
         #endregion
