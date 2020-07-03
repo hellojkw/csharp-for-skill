@@ -160,13 +160,14 @@ namespace EXCEL2020
 
             while (cellCommandBar.Controls.Count > 0)
             {
-                cellCommandBar.Controls[1].Delete();
+                cellCommandBar.Controls[1].Delete(true);
             }
 
             var targetPaymentData = list.FirstOrDefault(x => x.Row == Target.Row);
 
             Office.CommandBarButton button = (CommandBarButton)cellCommandBar.Controls.Add(
-                MsoControlType.msoControlButton
+                MsoControlType.msoControlButton,
+                Temporary: true
                 );
             if (button != null && targetPaymentData != null)
             {
