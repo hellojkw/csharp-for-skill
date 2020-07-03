@@ -36,6 +36,10 @@ namespace EXCEL2020
         {
             this.Startup += new System.EventHandler(ThisWorkbook_Startup);
             this.Shutdown += new System.EventHandler(ThisWorkbook_Shutdown);
+            this.SheetActivate += (sheet) =>
+            {
+                this.Application.CommandBars["Cell"]?.Reset();
+            };
         }
 
         #endregion
