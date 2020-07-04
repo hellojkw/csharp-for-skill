@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.Office.Tools;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
@@ -56,6 +57,36 @@ namespace EXCEL2020
                     Comment = this.GetCell(row, 7).AsString(),
                 };
             }
+        }
+
+        public void AddOrUpdateReview(ReviewData reviewData)
+        {
+            var existReview = GetReviewList()
+                .Where(x => x.UserNumber == reviewData.UserNumber)
+                .Where(x => x.PaymentNumber == reviewData.PaymentNumber)
+                .Where(x => x.RoomNumber == reviewData.RoomNumber)
+                .FirstOrDefault();
+
+            if (existReview != null)
+            {
+                reviewData.Row = existReview.Row;
+                reviewData.ReviewNumber = existReview.ReviewNumber;
+            }
+            else
+            {
+                reviewData.Row = UsedRange.Row + UsedRange.Rows.Count;
+                reviewData.ReviewNumber = GetReviewList().Any() ? GetReviewList().Max(x => x.ReviewNumber) + 1 : 1;
+            }
+
+            this.GetCell(reviewData.Row, 1).Value2 = reviewData.ReviewNumber;
+            this.GetCell(reviewData.Row, 2).Value2 = reviewData.PaymentNumber;
+            this.GetCell(reviewData.Row, 3).Value2 = reviewData.UserNumber;
+            this.GetCell(reviewData.Row, 4).Value2 = reviewData.Public;
+            this.GetCell(reviewData.Row, 5).Value2 = reviewData.RoomNumber;
+            this.GetCell(reviewData.Row, 6).Value2 = reviewData.Grade;
+            this.GetCell(reviewData.Row, 7).Value2 = reviewData.Comment;
+
+            Globals.ReviewSheet.Activate();
         }
 
         private void HidePrivateReview()

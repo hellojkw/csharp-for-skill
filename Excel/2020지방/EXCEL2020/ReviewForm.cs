@@ -15,6 +15,12 @@ namespace EXCEL2020
         PaymentData _paymentData;
         RoomData _roomData;
 
+        bool ExistReview => Globals.ReviewSheet.GetReviewList()
+                .Where(x => x.UserNumber == _paymentData.UserNumber)
+                .Where(x => x.PaymentNumber == _paymentData.PaymentNumber)
+                .Where(x => x.RoomNumber == _roomData?.RoomNumber)
+                .Any();
+
         public ReviewForm(PaymentData paymentData)
         {
             InitializeComponent();
@@ -50,13 +56,37 @@ namespace EXCEL2020
 
         private void UpdateAddButtonText()
         {
-            var existReview = Globals.ReviewSheet.GetReviewList()
-                .Where(x => x.UserNumber == _paymentData.UserNumber)
-                .Where(x => x.PaymentNumber == _paymentData.PaymentNumber)
-                .Where(x => x.RoomNumber == _roomData?.RoomNumber)
-                .Any();
 
-            AddOrUpdateButton.Text = existReview ? "수정" : "등록";
+            AddOrUpdateButton.Text = ExistReview ? "수정" : "등록";
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AddOrUpdateButton_Click(object sender, EventArgs e)
+        {
+            var reviewData = new ReviewData
+            {
+                PaymentNumber = _paymentData.PaymentNumber,
+                RoomNumber = _roomData.RoomNumber,
+                UserNumber = _paymentData.UserNumber,
+                Public = PublicOption.Checked,
+                Grade = (double)RoomGradeNumber.Value,
+                Comment = ReviewText.Text,
+            };
+
+            Globals.ReviewSheet.AddOrUpdateReview(reviewData);
+
+            if (ExistReview)
+            {
+                MessageBox.Show("수정되었습니다.");
+            }
+            else
+            {
+                MessageBox.Show("리뷰를 등록했습니다.");
+            }
         }
     }
 }

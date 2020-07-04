@@ -163,6 +163,7 @@
             this.AddOrUpdateButton.TabIndex = 5;
             this.AddOrUpdateButton.Text = "등록";
             this.AddOrUpdateButton.UseVisualStyleBackColor = true;
+            this.AddOrUpdateButton.Click += new System.EventHandler(this.AddOrUpdateButton_Click);
             // 
             // CancelButton
             // 
@@ -172,6 +173,7 @@
             this.CancelButton.TabIndex = 5;
             this.CancelButton.Text = "취소";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ReviewForm
             // 
