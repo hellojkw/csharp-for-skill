@@ -108,7 +108,17 @@
             // 
             // RoomGradeNumber
             // 
+            this.RoomGradeNumber.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.RoomGradeNumber.Location = new System.Drawing.Point(131, 96);
+            this.RoomGradeNumber.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.RoomGradeNumber.Name = "RoomGradeNumber";
             this.RoomGradeNumber.Size = new System.Drawing.Size(173, 27);
             this.RoomGradeNumber.TabIndex = 2;
