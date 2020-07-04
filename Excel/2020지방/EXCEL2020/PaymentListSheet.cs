@@ -38,6 +38,8 @@ namespace EXCEL2020
     {
         private void Sheet4_Startup(object sender, System.EventArgs e)
         {
+            HideOtherUserData();
+
             UpdateTotalPrice();
 
             this.CreateButton("메인으로", Range["K1"], () =>
@@ -68,6 +70,33 @@ namespace EXCEL2020
                     this.GetCell(paymentData.Row, 9).Value2 = paymentData.TotalPrice;
                 }
             });
+        }
+
+        private void HideOtherUserData()
+        {
+            var list = GetPaymentDataList().ToList();
+
+            Globals.ThisWorkbook.ThisApplication.ScreenUpdating = false;
+
+            list.ForEach(data =>
+            {
+                this.GetCell(data.Row, 1).EntireRow.Hidden = false;
+            });
+
+            var loginUser = Globals.MainSheet.LoginUser;
+
+            if (loginUser != null)
+            {
+                list
+                    .Where(x => x.UserNumber != loginUser.UserNumber)
+                    .ToList()
+                    .ForEach(data =>
+                    {
+                        this.GetCell(data.Row, 1).EntireRow.Hidden = true;
+                    });
+            }
+
+            Globals.ThisWorkbook.ThisApplication.ScreenUpdating = true;
         }
 
         public IEnumerable<PaymentData> GetPaymentDataList()
@@ -137,6 +166,10 @@ namespace EXCEL2020
         {
             this.Startup += new System.EventHandler(Sheet4_Startup);
             this.Shutdown += new System.EventHandler(Sheet4_Shutdown);
+            this.ActivateEvent += () =>
+            {
+                HideOtherUserData();
+            };
             this.BeforeRightClick += PaymentListSheet_BeforeRightClick;
         }
 
@@ -178,6 +211,7 @@ namespace EXCEL2020
                         button.FaceId = 1087;
                         button.Click += (Office.CommandBarButton control, ref bool cancel) =>
                         {
+                            new ReviewForm(targetPaymentData).ShowDialog();
                         };
                         break;
                     case Status.CheckIn:
