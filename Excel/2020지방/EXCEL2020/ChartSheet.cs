@@ -126,15 +126,20 @@ namespace EXCEL2020
                 row++;
             }
 
-            this.Chart_1.SetSourceData(this.Range["H1", this.GetCell(lastRow - 1, 9)]);
+            try
+            {
+                this.Chart_1.SetSourceData(this.Range["H1", this.GetCell(lastRow - 1, 9)]);
 
-            Chart_1.ClearToMatchStyle();
-            Chart_1.ChartStyle = 293;
-            var series = (Excel.Series)this.Chart_1.SeriesCollection(1);
-            var point = (Excel.Point)series.Points(maximumIndex + 1);
-            point.Format.Fill.ForeColor.RGB = (int)XlRgbColor.rgbRed;
-            point.Format.Fill.Transparency = 0;
-            point.Format.Fill.Solid();
+                Chart_1.ClearToMatchStyle();
+                Chart_1.ChartStyle = 293;
+                var series = (Excel.Series)this.Chart_1.SeriesCollection(1);
+                var point = (Excel.Point)series.Points(maximumIndex + 1);
+                point.Format.Fill.ForeColor.RGB = (int)XlRgbColor.rgbRed;
+                point.Format.Fill.Transparency = 0;
+                point.Format.Fill.Solid();
+            }
+            catch
+            { }
         }
     }
 }
