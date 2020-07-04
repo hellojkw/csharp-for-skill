@@ -108,6 +108,7 @@
             // 
             // RoomGradeNumber
             // 
+            this.RoomGradeNumber.DecimalPlaces = 1;
             this.RoomGradeNumber.Increment = new decimal(new int[] {
             5,
             0,
@@ -126,6 +127,7 @@
             // PublicOption
             // 
             this.PublicOption.AutoSize = true;
+            this.PublicOption.Checked = true;
             this.PublicOption.Location = new System.Drawing.Point(131, 143);
             this.PublicOption.Name = "PublicOption";
             this.PublicOption.Size = new System.Drawing.Size(39, 24);
