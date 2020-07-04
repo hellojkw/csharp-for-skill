@@ -17,6 +17,8 @@ namespace EXCEL2020 {
     [global::System.Security.Permissions.PermissionSetAttribute(global::System.Security.Permissions.SecurityAction.Demand, Name="FullTrust")]
     public sealed partial class ChartSheet : Microsoft.Office.Tools.Excel.WorksheetBase {
         
+        internal Microsoft.Office.Tools.Excel.Chart Chart_1;
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
         private global::System.Object missing = global::System.Type.Missing;
         
@@ -118,6 +120,7 @@ namespace EXCEL2020 {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void BeginInitialization() {
             this.BeginInit();
+            this.Chart_1.BeginInit();
         }
         
         /// 
@@ -125,6 +128,7 @@ namespace EXCEL2020 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void EndInitialization() {
+            this.Chart_1.EndInit();
             this.EndInit();
         }
         
@@ -133,6 +137,7 @@ namespace EXCEL2020 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void InitializeControls() {
+            this.Chart_1 = Globals.Factory.CreateChart(null, null, "Sheet6:Chart 1", "Chart_1", this);
             this.ChartSelect = new Microsoft.Office.Tools.Excel.Controls.ComboBox(Globals.Factory, this.ItemProvider, this.HostContext, "122DDB3D21742C14D851A1B31D2CF12300FED1", "122DDB3D21742C14D851A1B31D2CF12300FED1", this, "ChartSelect");
             this.GotoMainButton = new Microsoft.Office.Tools.Excel.Controls.Button(Globals.Factory, this.ItemProvider, this.HostContext, "2C928815A2098124E082A0D6261B9401EF9D52", "2C928815A2098124E082A0D6261B9401EF9D52", this, "GotoMainButton");
         }
@@ -156,6 +161,10 @@ namespace EXCEL2020 {
             this.GotoMainButton.Text = "메인으로";
             this.GotoMainButton.UseVisualStyleBackColor = false;
             // 
+            // Chart_1
+            // 
+            this.Chart_1.DefaultDataSourceUpdateMode = System.Windows.Forms.DataSourceUpdateMode.Never;
+            // 
             // ChartSheet
             // 
             this.ChartSelect.BindingContext = this.BindingContext;
@@ -167,6 +176,15 @@ namespace EXCEL2020 {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private bool NeedsFill(string MemberName) {
             return this.DataHost.NeedsFill(this, MemberName);
+        }
+        
+        /// 
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "16.0.0.0")]
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        protected override void OnShutdown() {
+            this.Chart_1.Dispose();
+            base.OnShutdown();
         }
     }
     

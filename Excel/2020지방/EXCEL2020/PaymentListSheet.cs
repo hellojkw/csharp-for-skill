@@ -56,20 +56,31 @@ namespace EXCEL2020
 
             paymentList.ForEach(paymentData =>
             {
-                var user = userList.FirstOrDefault(x => x.UserNumber == paymentData.UserNumber);
+                var total = CalcTotal(paymentData.UserNumber, paymentData.RoomList.Select(x => x.RoomNo).ToList(), paymentData.CheckInDate, paymentData.CheckOutDate, userList, roomList);
 
-                if (user != null)
-                {
-                    var usedDays = (int)(paymentData.CheckOutDate.Subtract(paymentData.CheckInDate).TotalDays);
-                    paymentData.TotalPrice = paymentData.RoomList
-                        .Select(room => roomList.FirstOrDefault(x => x.RoomNumber == room.RoomNo))
-                        .Where(room => room != null)
-                        .Select(room => (long)(usedDays * room.UnitPrice * (1 - user.Discount)))
-                        .Sum();
-
-                    this.GetCell(paymentData.Row, 9).Value2 = paymentData.TotalPrice;
-                }
+                this.GetCell(paymentData.Row, 9).Value2 = total;
             });
+        }
+
+        public long CalcTotal(int userNo, List<string> roomNoList, DateTime checkInDate, DateTime checkOutDate, List<UserData> userList = null, List<RoomData> roomList = null)
+        {
+            if (userList == null)
+                userList = Globals.UserListSheet.GetUserList().ToList();
+            if (roomList == null)
+                roomList = Globals.RoomListSheet.GetRoomList().ToList();
+
+            var user = userList.FirstOrDefault(x => x.UserNumber == userNo);
+
+            if (user == null)
+                return 0;
+
+            var usedDays = (int)(checkOutDate.Subtract(checkInDate).TotalDays);
+
+            return roomNoList
+                .Select(roomNo => roomList.FirstOrDefault(x => x.RoomNumber == roomNo))
+                .Where(room => room != null)
+                .Select(room => (long)(usedDays * room.UnitPrice * (1 - user.Discount)))
+                .Sum();
         }
 
         private void HideOtherUserData()
