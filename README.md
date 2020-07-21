@@ -5,4 +5,4 @@
 - VBA 로 만든 엑셀 문제를 VSTO 를 사용한 풀이 제공
 - JAVA 문제를 C# Form application 을 사용한 풀이 제공
 
-초보자를 위한 설치 & 실행 가이드 상단 Wiki를 참고하세요.
+초보자를 위한 설치 & 실행 가이드 상단 [Wiki](https://github.com/hellojkw/csharp-for-skill/wiki)를 참고하세요.
